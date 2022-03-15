@@ -4,13 +4,18 @@ const black = document.getElementById("black");
 const color = document.getElementById("color");
 const eraser = document.getElementById("eraser");
 const clear = document.getElementById("clear");
+const line = document.getElementById("line");
 let startingGrid = 16;
+let click = true;
+let noLines = true;
 
 black.addEventListener("click", blackColor)
 color.addEventListener("click", randomColor)
 eraser.addEventListener("click", whiteColor)
 resize.addEventListener("click", makeGrid)
 clear.addEventListener("click", clearGrid)
+line.addEventListener("click", toggleLine)
+
 
 function blackColor() {
     // black.style.backgroundColor = "black";
@@ -74,7 +79,36 @@ function makeGrid(gridSize) {
     })
 }
 
+function changeColor() {
+    if (click) {
+    randomR = Math.floor(Math.random() * 255);
+    randomG = Math.floor(Math.random() * 255);
+    randomB = Math.floor(Math.random() * 255);
+    if (color.className === "hidden" && eraser.className === "hidden") {
+        this.style.backgroundColor = "black";
+    } else if (black.className === "hidden" && eraser.className === "hidden") {
+        this.style.backgroundColor = `rgba(${randomR}, ${randomG}, ${randomB}, 1)`;
+    } else if (black.className === "hidden" && color.className === "hidden") {
+        this.style.backgroundColor = "white";
+    }
+}
+}
 
+function toggleLine() {
+    const row = document.querySelectorAll(".row")
+    if (noLines) {
+        row.forEach(box => {
+        box.style.border = "1px solid black";})
+    } else {
+        row.forEach(box => {
+        box.style.border = "";})
+    }
+    noLines = !noLines;
+}
+
+document.querySelector(".container").addEventListener("click", () => {
+    click = !click;
+});
 
 // resize.addEventListener("click", makeGrid)
 
@@ -132,16 +166,3 @@ function makeGrid(gridSize) {
 // hover.addEventListener("mouserover", () => {
 //     hover.style.backgroundColor = "black"
 // });
-
-function changeColor() {
-    randomR = Math.floor(Math.random() * 255);
-    randomG = Math.floor(Math.random() * 255);
-    randomB = Math.floor(Math.random() * 255);
-    if (color.className === "hidden" && eraser.className === "hidden") {
-        this.style.backgroundColor = "black";
-    } else if (black.className === "hidden" && eraser.className === "hidden") {
-        this.style.backgroundColor = `rgba(${randomR}, ${randomG}, ${randomB}, 1)`;
-    } else if (black.className === "hidden" && color.className === "hidden") {
-        this.style.backgroundColor = "white";
-    }
-}
