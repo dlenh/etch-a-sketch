@@ -9,14 +9,29 @@ body {
     height: 100%;
 }
 
-.header {
+.header,
+.buttons {
     text-align: center;
+}
+
+#black,
+#color,
+#eraser,
+#clear {
+    padding: .2rem;
+}
+
+#black.on,
+#color.on,
+#eraser.on {
+    background-color: black;
+    color: white;
 }
 
 .container {
     display: flex;
-    height: 500px;
-    width: 500px;
+    height: 600px;
+    width: 600px;
     border: 1px solid red;
     margin: 5vh auto;
 }
@@ -28,6 +43,6 @@ body {
 }
 
 .row {
-    border: 1px solid black;
+    border: 1px solid gray;
     height: 100%;
 }
