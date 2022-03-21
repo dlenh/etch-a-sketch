@@ -55,11 +55,19 @@ function clearGrid() {
 
 function makeGrid(gridSize) {
     currentDiv.innerText = "";
+    gridResize = document.getElementById("gridSize");
     if (gridSize === startingGrid) {
-        gridSize === 16;
+        gridSize === startingGrid;
+    } else if (gridResize.value < 2 || gridResize.value > 100) {
+        do {
+            userInput = prompt("Please enter a value between 2 and 100.", "2-100");
+        } while (isNaN(userInput) || userInput < 2 || userInput > 100);
+        gridSize = userInput;
+        gridResize.value = userInput;
     } else {
         gridSize = document.getElementById("gridSize").value
     }
+    
     for (i = 1; i <= gridSize; i++) {
         const column = document.createElement("div");
         column.className = `column ${i}`;
