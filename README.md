@@ -1,4 +1,7 @@
 # etch-a-sketch
+
+<https://dlenh.github.io/etch-a-sketch/>
+
 This project is a part of The Odin Project's curriculum. This was great practice for DOM manipulation since we were asked not to create the 16x16 div in html. The instructions said to use float/clear, inline-block, CSS Grid, or flexbox, and I chose to make the divs appear as a grid using flexbox. In addition to DOM manipulation using event listeners, I was also able to utilize for loops and if/else statements in my functions. 
 
 I added a colored pen option, but it would recolor a box that was already colored. I believe that would be an easy fix with an if statement (pseudocode: if box is already colored then do not add new background color). 
